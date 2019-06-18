@@ -1,0 +1,12 @@
+<h1>Websites</h1>
+<div class="list-group">
+  <a *ngFor="let website of websites"
+     class="list-group-item">
+    {{website.title}} {{website._id}}
+    <i (click)="deleteWebsite(website)" class="fa fa-remove float-right"></i>
+  </a>
+</div>
+<br/>
+<button (click)="createWebsite()" class="btn btn-success">
+  Create Website
+</button>
