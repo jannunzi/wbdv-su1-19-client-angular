@@ -25,4 +25,14 @@ export default class WebsiteService {
     })
       .then(response => response.json());
   }
+
+  updateWebsite = (_id: string, website: any) =>
+    fetch(this.WEBSITE_URL + '/' + _id, {
+      method: 'PUT',
+      body: JSON.stringify(website),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+      .then(response => response.json());
 }

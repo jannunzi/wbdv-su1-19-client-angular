@@ -1,9 +1,19 @@
 <h1>Websites</h1>
 <div class="list-group">
-  <a *ngFor="let website of websites"
+  <a [routerLink]="'/websites/' + website._id + '/pages'" *ngFor="let website of websites"
      class="list-group-item">
-    {{website.title}} {{website._id}}
-    <i (click)="deleteWebsite(website)" class="fa fa-remove float-right"></i>
+    <span [hidden]="website.editing">{{website.title}}</span>
+    <input
+      [(ngModel)]="website.title"
+      [hidden]="!website.editing"/>
+    <i [hidden]="website.editing"
+       (click)="setEditing(website, true)"
+       class="fa fa-pencil float-right"></i>
+    <i [hidden]="!website.editing"
+       (click)="setEditing(website, false)"
+       class="fa fa-check float-right"></i>
+    <i (click)="deleteWebsite(website)"
+       class="fa fa-remove float-right"></i>
   </a>
 </div>
 <br/>

@@ -11,6 +11,7 @@ export class WebsiteListComponent implements OnInit {
   constructor(private service: WebsiteService) { }
 
   websites = [];
+  editing = false;
 
   ngOnInit() {
     this.service.findAllWebsites()
@@ -21,6 +22,14 @@ export class WebsiteListComponent implements OnInit {
     this.service
       .createWebsite({title: 'New Website'})
       .then(website => this.websites.push(website));
+  }
+
+  setEditing = (website, editing) => {
+    website.editing = editing;
+    if (editing === false) {
+      this.service.updateWebsite(website._id, website)
+        .then(status => console.log(status));
+    }
   }
 
   deleteWebsite(website) {

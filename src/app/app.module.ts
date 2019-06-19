@@ -23,6 +23,11 @@ import { ColumnToolbarComponent } from './column-toolbar/column-toolbar.componen
 import LayoutService from './services/LayoutService';
 import { WebsiteListComponent } from './website-list/website-list.component';
 import WebsiteService from './services/WebsiteService';
+import { PageListComponent } from './page-list/page-list.component';
+import PageService from './services/PageService';
+import { PageEditorComponent } from './page-editor/page-editor.component';
+import { PageRowComponent } from './page-row/page-row.component';
+import { PageColumnComponent } from './page-column/page-column.component';
 // import { WidgetEditorComponent } from './widget-editor/widget-editor.component';
 
 @NgModule({
@@ -42,6 +47,10 @@ import WebsiteService from './services/WebsiteService';
     LessonListComponent,
     ColumnToolbarComponent,
     WebsiteListComponent,
+    PageListComponent,
+    PageEditorComponent,
+    PageRowComponent,
+    PageColumnComponent,
     // WidgetEditorComponent
   ],
   imports: [
@@ -52,7 +61,8 @@ import WebsiteService from './services/WebsiteService';
   providers: [
     UserService,
     CourseNavigatorServiceClient,
-    WebsiteService
+    WebsiteService,
+    PageService
     // Model,
     // LayoutService
     // PageModel
